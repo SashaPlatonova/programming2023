@@ -24,4 +24,13 @@ urlpatterns = [
     path('checkin/update/<int:pk>/', CheckinUpdate.as_view()),
     path('rooms/all', RoomListView.as_view()),
     path('rooms/update/<int:pk>/', RoomUpdate.as_view()),
+    path('types/all', views.TransportTypeListView.as_view()),
+    path('types/all/<int:pk>/', TypeRetrive.as_view()),
+    path('transport/all', views.TransportListView.as_view()),
+    path('transport/create', TransportCreateView.as_view()),
+    path('transport/delete/<int:pk>/', TransportDelete.as_view()),
+    path('order/all', OrderListView.as_view()),
+    path('order/filter/busy', OrderSetFilteredByDateBusyView.as_view()),
+    path('transport/filter/free', TransportSetFilteredByDateFreeView.as_view()),
+    # path('transport/filter/busy', OrderSetFilteredByDateFreeView.as_view()),
     ]
