@@ -184,3 +184,28 @@ class TransportSetFilteredByDateBusyView(generics.ListCreateAPIView):
         serializer = TransportSer(queryset, many=True)
 
         return Response(serializer.data)
+
+
+class TransportFindByParamsView(generics.ListCreateAPIView):
+    serializer_class = TransportSer
+
+    def post(self, request, *args, **kwargs):
+        queryset = Order.objects.all()
+        date_begin = request.data['date_begin']
+        time_begin = request.data['time_begin']
+        height = request.data['height']
+        length = request.data['length']
+        weight = request.data['weight']
+        width = request.data['width']
+        join_date = date_begin + ' ' + time_begin + ':00'
+        begin_number = int(DT.datetime.strptime(join_date, '%Y-%m-%d %H:%M:%S').timestamp())
+        end_number = begin_number + 10800
+        queryset = queryset.filter(time_start__gte=begin_number)
+        queryset = queryset.filter(time_end__lte=end_number)
+        orders_id = queryset.values_list('transport_id_id', flat=True)
+        queryset = Transport.objects.filter(~Q(id__in=orders_id))
+        # todo: method calculation size + capacity from type
+        queryset = queryset.filter(high__gte=height, width__gte=width, length__gte=length)
+        serializer = TransportSer(queryset, many=True)
+
+        return Response(serializer.data)

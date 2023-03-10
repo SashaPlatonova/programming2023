@@ -21,4 +21,5 @@ urlpatterns = [
     path('order/filter/busy', OrderSetFilteredByDateBusyView.as_view()),
     path('transport/filter/free', TransportSetFilteredByDateFreeView.as_view()),
     path('transport/filter/busy', TransportSetFilteredByDateBusyView.as_view()),
+    path('transport/filter/params', TransportFindByParamsView.as_view()),
     ]

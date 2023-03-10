@@ -19,8 +19,8 @@ class TransportType(models.Model):
     load_capacity = models.FloatField(validators=[MinValueValidator(0)])
     min_length = models.FloatField(validators=[MinValueValidator(0)])
     max_length = models.FloatField(validators=[MinValueValidator(0)])
-    min_weight = models.FloatField(validators=[MinValueValidator(0)])
-    max_weight = models.FloatField(validators=[MinValueValidator(0)])
+    min_width = models.FloatField(validators=[MinValueValidator(0)])
+    max_width = models.FloatField(validators=[MinValueValidator(0)])
     high_min = models.FloatField(validators=[MinValueValidator(0)])
     high_max = models.FloatField(validators=[MinValueValidator(0)])
     logo = models.TextField(blank=True)
@@ -31,7 +31,7 @@ class Transport(models.Model):
     type = models.ForeignKey(TransportType, on_delete=models.CASCADE)
     rent_cost = models.IntegerField(validators=[MinValueValidator(0)])
     length = models.FloatField(validators=[MinValueValidator(0)])
-    weight = models.FloatField(validators=[MinValueValidator(0)])
+    width = models.FloatField(validators=[MinValueValidator(0)])
     high = models.FloatField(validators=[MinValueValidator(0)])
 
 
