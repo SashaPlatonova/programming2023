@@ -55,3 +55,9 @@ class TransportCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transport
         fields = "__all__"
+
+
+class OrderCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = "__all__"

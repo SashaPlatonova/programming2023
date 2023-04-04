@@ -15,6 +15,7 @@ urlpatterns = [
     path('types/all', views.TransportTypeListView.as_view()),
     path('types/all/<int:pk>/', TypeRetrive.as_view()),
     path('transport/all', views.TransportListView.as_view()),
+    path('transport/all/<int:pk>/', TransportRetrive.as_view()),
     path('transport/create', TransportCreateView.as_view()),
     path('transport/delete/<int:pk>/', TransportDelete.as_view()),
     path('order/all', OrderListView.as_view()),
@@ -22,4 +23,5 @@ urlpatterns = [
     path('transport/filter/free', TransportSetFilteredByDateFreeView.as_view()),
     path('transport/filter/busy', TransportSetFilteredByDateBusyView.as_view()),
     path('transport/filter/params', TransportFindByParamsView.as_view()),
+    path('order/create', OrderCreateView.as_view()),
     ]

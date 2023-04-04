@@ -52,7 +52,8 @@ class ResidentRetrive(generics.RetrieveAPIView):
 
 class TransportTypeListView(generics.ListAPIView):
     serializer_class = TransportTypeSer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = []
+    permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
         queryset = TransportType.objects.all()
@@ -67,11 +68,20 @@ class TransportTypeListView(generics.ListAPIView):
 class TypeRetrive(generics.RetrieveAPIView):
     queryset = TransportType.objects.all()
     serializer_class = TransportTypeSer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []
+
+
+class TransportRetrive(generics.RetrieveAPIView):
+    queryset = Transport.objects.all()
+    serializer_class = TransportSer
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []
 
 
 class TransportListView(generics.ListAPIView):
     serializer_class = TransportSer
+    authentication_classes = []
 
     def get_queryset(self):
         queryset = Transport.objects.all()
@@ -188,6 +198,8 @@ class TransportSetFilteredByDateBusyView(generics.ListCreateAPIView):
 
 class TransportFindByParamsView(generics.ListCreateAPIView):
     serializer_class = TransportSer
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []
 
     def post(self, request, *args, **kwargs):
         queryset = Order.objects.all()
@@ -209,3 +221,10 @@ class TransportFindByParamsView(generics.ListCreateAPIView):
         serializer = TransportSer(queryset, many=True)
 
         return Response(serializer.data)
+
+
+class OrderCreateView(generics.CreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderCreateSerializer
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []

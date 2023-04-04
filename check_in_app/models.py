@@ -8,8 +8,9 @@ from django.core.validators import MinValueValidator
 class Resident(AbstractUser):
     registration_num = models.IntegerField(default=100, blank=True, null=True, validators=[MinValueValidator(0)])
     full_name = models.CharField(max_length=100, default="full_name")
-    passport = models.CharField(max_length=20, blank=True, default="passport")
+    passport = models.CharField(max_length=20, blank=True)
     phone = models.CharField(max_length=20, blank=True)
+    email = models.CharField(max_length=100)
 
     REQUIRED_FIELDS = ['full_name', 'phone']
 
