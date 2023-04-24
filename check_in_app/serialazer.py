@@ -19,6 +19,12 @@ class ResidentCreateSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class ResidentUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Resident
+        fields = ['full_name', 'passport', 'email', 'phone']
+
+
 class TransportTypeSer(serializers.ModelSerializer):
     class Meta:
         model = TransportType

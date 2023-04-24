@@ -42,4 +42,5 @@ class Order(models.Model):
     transport_id = models.ForeignKey(Transport, on_delete=models.CASCADE)
     time_start = models.IntegerField(blank=False)
     time_end = models.IntegerField(blank=False)
+    status = models.TextField(blank=True, default="Не исполнен")
 

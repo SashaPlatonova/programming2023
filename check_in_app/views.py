@@ -40,7 +40,8 @@ class ResidentCreateView(generics.CreateAPIView):
 
 class ResidentUpdate(generics.RetrieveUpdateAPIView):
     queryset = Resident.objects.all()
-    serializer_class = ResidentCreateSerializer
+    serializer_class = ResidentUpdateSerializer
+
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
