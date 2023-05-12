@@ -79,7 +79,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(default='name of the hostel', max_length=100)),
                 ('house_num', models.IntegerField(validators=[django.core.validators.MinValueValidator(0)])),
                 ('building', models.IntegerField(validators=[django.core.validators.MinValueValidator(0)])),
-                ('address_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='check_in_app.address')),
+                ('address_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='car_project.address')),
             ],
         ),
         migrations.CreateModel(
@@ -100,7 +100,7 @@ class Migration(migrations.Migration):
                 ('beds', models.IntegerField(validators=[django.core.validators.MinValueValidator(0)])),
                 ('area', models.FloatField(validators=[django.core.validators.MinValueValidator(0)])),
                 ('busy_beds', models.IntegerField(validators=[django.core.validators.MinValueValidator(0)])),
-                ('hostel_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='check_in_app.hostel')),
+                ('hostel_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='car_project.hostel')),
             ],
         ),
         migrations.CreateModel(
@@ -110,23 +110,23 @@ class Migration(migrations.Migration):
                 ('amount', models.FloatField(validators=[django.core.validators.MinValueValidator(0)])),
                 ('status', models.CharField(choices=[('p', 'paid'), ('np', 'not paid'), ('pp', 'partially paid')], max_length=50)),
                 ('date_pay', models.DateField(default=datetime.date.today)),
-                ('check_in_out_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='check_in_app.check_in_out')),
+                ('check_in_out_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='car_project.check_in_out')),
             ],
         ),
         migrations.AddField(
             model_name='hostel',
             name='organization_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='check_in_app.organizatoin'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='car_project.organizatoin'),
         ),
         migrations.AddField(
             model_name='check_in_out',
             name='room_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='check_in_app.room'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='car_project.room'),
         ),
         migrations.AddField(
             model_name='resident',
             name='organization_id',
-            field=models.ForeignKey(blank=True, default=1, null=True, on_delete=django.db.models.deletion.CASCADE, to='check_in_app.organizatoin'),
+            field=models.ForeignKey(blank=True, default=1, null=True, on_delete=django.db.models.deletion.CASCADE, to='car_project.organizatoin'),
         ),
         migrations.AddField(
             model_name='resident',

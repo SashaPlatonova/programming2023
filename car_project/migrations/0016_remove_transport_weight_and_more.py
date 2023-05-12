@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('check_in_app', '0015_remove_check_in_out_resident_id_and_more'),
+        ('car_project', '0015_remove_check_in_out_resident_id_and_more'),
     ]
 
     operations = [

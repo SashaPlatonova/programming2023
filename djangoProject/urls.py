@@ -23,7 +23,7 @@ from django.urls import path, include, re_path
 # ]
 from rest_framework import routers
 
-from check_in_app import views
+from car_project import views
 
 # vue_urls = [
 #   path('', views.frontend),
@@ -33,7 +33,7 @@ from check_in_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('check_in_app.urls')),
+    path('api/', include('car_project.urls')),
     path('auth/', include('djoser.urls')),
     # path('', include(vue_urls)),
     re_path(r'^auth/', include('djoser.urls.authtoken')),

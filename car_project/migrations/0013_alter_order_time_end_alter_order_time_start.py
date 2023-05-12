@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('check_in_app', '0012_alter_order_time_end_alter_order_time_start'),
+        ('car_project', '0012_alter_order_time_end_alter_order_time_start'),
     ]
 
     operations = [

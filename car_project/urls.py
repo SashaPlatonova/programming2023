@@ -1,10 +1,10 @@
 from rest_framework import routers
 from django.urls import path, include
-from check_in_app import views
+from car_project import views
 from .views import *
 
 
-app_name = "check_in_app"
+app_name = "car_project"
 
 
 urlpatterns = [

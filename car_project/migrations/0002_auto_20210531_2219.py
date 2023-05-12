@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('check_in_app', '0001_initial'),
+        ('car_project', '0001_initial'),
     ]
 
     operations = [
@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='payment',
             name='check_in_out_id',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='check_in_app.check_in_out'),
+            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='car_project.check_in_out'),
         ),
         migrations.AlterField(
             model_name='payment',

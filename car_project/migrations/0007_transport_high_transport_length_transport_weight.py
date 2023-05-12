@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('check_in_app', '0006_transporttype_logo'),
+        ('car_project', '0006_transporttype_logo'),
     ]
 
     operations = [
