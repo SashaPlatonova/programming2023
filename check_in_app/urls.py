@@ -19,6 +19,7 @@ urlpatterns = [
     path('transport/create', TransportCreateView.as_view()),
     path('transport/delete/<int:pk>/', TransportDelete.as_view()),
     path('order/all', OrderListView.as_view()),
+    path('order/update/<int:pk>/', OrderUpdate.as_view()),
     path('order/filter/busy', OrderSetFilteredByDateBusyView.as_view()),
     path('transport/filter/free', TransportSetFilteredByDateFreeView.as_view()),
     path('transport/filter/busy', TransportSetFilteredByDateBusyView.as_view()),
