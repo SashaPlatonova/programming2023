@@ -224,7 +224,8 @@ class TransportFindByParamsView(generics.ListCreateAPIView):
         orders_id = queryset.values_list('transport_id_id', flat=True)
         queryset = Transport.objects.filter(~Q(id__in=orders_id))
 
-        queryset = queryset.filter(high__gte=height, width__gte=width, length__gte=length)
+        v = height*width*length
+        queryset = queryset.raw("SELECT * from transport where high*width*length <= %s", [v])
         serializer = TransportSer(queryset, many=True)
 
         return Response(serializer.data)
